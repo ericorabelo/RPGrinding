@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RPGrinding" >
         <activity
-            android:name=".CadastroActivity"
+            android:name=".atividades.CadastroActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".atividades.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".atividades.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

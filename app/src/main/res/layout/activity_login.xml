@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fundo"
-    tools:context=".LoginActivity">
+    tools:context=".atividades.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -30,6 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/caixas"
@@ -48,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editLoginSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/caixas"
@@ -63,7 +65,7 @@
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/black"
         android:hint="@string/botao_logar"
-        android:onClick="abrirTelaCadastro"
+        android:onClick="validarAutenticacaoUsuario"
         android:text="@string/botao_logar"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/textView"
@@ -78,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="@string/nao_tem_conta"
+        android:onClick="abrirTelaCadastro"
         android:text="@string/nao_tem_conta"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
