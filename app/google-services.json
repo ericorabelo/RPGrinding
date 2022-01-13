@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "716869373329",
+    "project_id": "rpgrinding-daba3",
+    "storage_bucket": "rpgrinding-daba3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716869373329:android:d210a407a60d4a47b1de30",
+        "android_client_info": {
+          "package_name": "erico.rabelo.rpgrinding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716869373329-dbmsu89s8t8rgceah4qeae9dkdg0ad23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "erico.rabelo.rpgrinding",
+            "certificate_hash": "45a913ca8275869a45ba4f78630992ab21dadd60"
+          }
+        },
+        {
+          "client_id": "716869373329-3i0i53jicv72ecqkbo08fsug3llkt7p3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFoAg4EPFhQx3cM-9BdSMhZ5DV_KhavSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716869373329-3i0i53jicv72ecqkbo08fsug3llkt7p3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
