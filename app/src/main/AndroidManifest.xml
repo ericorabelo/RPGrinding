@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="erico.rabelo.rpgrinding" >
+    package="erico.rabelo.rpgrinding">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RPGrinding" >
+        android:theme="@style/Theme.RPGrinding">
+        <activity
+            android:name=".atividades.ConfiguracoesActivity"
+            android:parentActivityName=".atividades.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".atividades.QuestActivity"
+            android:exported="true" />
         <activity
             android:name=".atividades.CadastroActivity"
             android:exported="true" />
@@ -17,7 +24,7 @@
             android:exported="true" />
         <activity
             android:name=".atividades.LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

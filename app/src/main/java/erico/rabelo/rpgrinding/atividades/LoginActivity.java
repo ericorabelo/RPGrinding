@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
 
 import erico.rabelo.rpgrinding.R;
 import erico.rabelo.rpgrinding.config.ConfiguracaoFirebase;
@@ -36,7 +37,9 @@ public class LoginActivity extends AppCompatActivity {
 
         campoEmail = findViewById(R.id.editLoginEmail);
         campoSenha = findViewById(R.id.editLoginSenha);
+
     }
+
 
     public void logarUsuario(Usuario usuario){
         autenticacao.signInWithEmailAndPassword(
@@ -64,7 +67,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
+
 
     public void validarAutenticacaoUsuario(View view){
         //recuperar textos dos campos
@@ -73,30 +78,44 @@ public class LoginActivity extends AppCompatActivity {
 
         //validar se campos foram preenchidos
 
-            if(!textoEmail.isEmpty()){
-                if(!textoSenha.isEmpty()){
-                    Usuario usuario = new Usuario();
-                    usuario.setEmail(textoEmail);
-                    usuario.setSenha(textoSenha);
+        if(!textoEmail.isEmpty()){
+            if(!textoSenha.isEmpty()){
+                Usuario usuario = new Usuario();
+                usuario.setEmail(textoEmail);
+                usuario.setSenha(textoSenha);
 
-                    logarUsuario(usuario);
-                }else{
-                    Toast.makeText(LoginActivity.this, "Preencha a senha!", Toast.LENGTH_SHORT).show();
-                }
+                logarUsuario(usuario);
             }else{
-                Toast.makeText(LoginActivity.this, "Preencha o email!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Preencha a senha!", Toast.LENGTH_SHORT).show();
             }
+        }else{
+            Toast.makeText(LoginActivity.this, "Preencha o email!", Toast.LENGTH_SHORT).show();
+        }
 
     }
+
+
+    //mantem o usuário logado
+    public void onStart(){
+        super.onStart();
+        FirebaseUser usuarioAtual = autenticacao.getCurrentUser();
+        if(usuarioAtual != null){
+            abrirTelaPrincipal();
+        }
+
+    }
+
 
     public void abrirTelaCadastro(View view){
         Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
         startActivity( intent );
+
     }
 
     public void abrirTelaPrincipal(){
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity( intent );
+
     }
 
 }

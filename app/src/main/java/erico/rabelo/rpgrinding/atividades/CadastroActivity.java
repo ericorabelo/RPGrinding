@@ -29,7 +29,7 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        campoNome = findViewById(R.id.editLoginSenha);
+        campoNome = findViewById(R.id.editNome);
         campoEmail = findViewById(R.id.editLoginEmail);
         campoSenha = findViewById(R.id.editLoginSenha);
 
@@ -43,9 +43,22 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+
+
+
                     Toast.makeText(CadastroActivity.this, "Sucesso ao Cadastrar usuário!",
                             Toast.LENGTH_SHORT).show();
                     finish();
+
+                    try{
+                        String idUsuario = task.getResult().getUser().getUid();
+                        usuario.setId(idUsuario);
+                        usuario.salvar();
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
                 }else{
                     String excecao = "";
                     try {
@@ -80,6 +93,7 @@ public class CadastroActivity extends AppCompatActivity {
             if(!textoEmail.isEmpty()){
                 if(!textoSenha.isEmpty()){
                     Usuario usuario = new Usuario();
+
                     usuario.setNome(textoNome);
                     usuario.setEmail(textoEmail);
                     usuario.setSenha(textoSenha);

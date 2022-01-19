@@ -33,7 +33,8 @@
         android:id="@+id/editNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/digite_nome" />
+        android:hint="@string/digite_nome"
+        android:inputType="text" />
   </com.google.android.material.textfield.TextInputLayout>
 
   <com.google.android.material.textfield.TextInputLayout
