@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
     public void logarUsuario(Usuario usuario){
         autenticacao.signInWithEmailAndPassword(
                 usuario.getEmail(), usuario.getSenha()
@@ -70,14 +69,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
     public void validarAutenticacaoUsuario(View view){
         //recuperar textos dos campos
         String textoEmail = campoEmail.getText().toString();
         String textoSenha = campoSenha.getText().toString();
 
         //validar se campos foram preenchidos
-
         if(!textoEmail.isEmpty()){
             if(!textoSenha.isEmpty()){
                 Usuario usuario = new Usuario();
@@ -94,7 +91,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
     //mantem o usuário logado
     public void onStart(){
         super.onStart();
@@ -104,7 +100,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-
 
     public void abrirTelaCadastro(View view){
         Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);

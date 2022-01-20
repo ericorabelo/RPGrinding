@@ -9,47 +9,71 @@
     <include
         android:id="@+id/include"
         layout="@layout/toolbar"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="-81dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageViewPerfil"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintBottom_toBottomOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="@+id/include"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282"
         app:srcCompat="@drawable/perfil" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextPerfilNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="4dp"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include" />
+        android:text="Nome do Usuário"
+        app:layout_constraintEnd_toEndOf="@+id/include"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/include"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPerfil" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageViewAtualizarNome"
         android:layout_width="46dp"
         android:layout_height="42dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="124dp"
         android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="@+id/include"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/editTextPerfilNome"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.465"
         app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    <ImageButton
+        android:id="@+id/imageButtonGaleria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPerfil"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonCamera"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/include"
+        app:layout_constraintTop_toTopOf="@+id/imageViewPerfil"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_insert_photo_24" />
+
+    <ImageButton
+        android:id="@+id/imageButtonCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPerfil"
+        app:layout_constraintEnd_toStartOf="@+id/include"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonGaleria"
+        app:layout_constraintTop_toTopOf="@+id/imageViewPerfil"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

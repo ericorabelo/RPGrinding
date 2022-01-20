@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import erico.rabelo.rpgrinding.R;
 import erico.rabelo.rpgrinding.config.ConfiguracaoFirebase;
 import erico.rabelo.rpgrinding.model.Usuario;
+import erico.rabelo.rpgrinding.sup.UsuarioFirebase;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    public void cadastrarUsuario(Usuario usuario){
+    public void cadastrarUsuario(final Usuario usuario){
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         autenticacao.createUserWithEmailAndPassword(
                 usuario.getEmail(), usuario.getSenha()
@@ -43,11 +44,9 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-
-
-
                     Toast.makeText(CadastroActivity.this, "Sucesso ao Cadastrar usuário!",
                             Toast.LENGTH_SHORT).show();
+                    UsuarioFirebase.atualizarNomeUsuario(usuario.getNome());
                     finish();
 
                     try{
