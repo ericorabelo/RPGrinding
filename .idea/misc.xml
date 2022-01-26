@@ -7,11 +7,23 @@
         <entry key="app/src/main/res/drawable/ic_baseline_insert_photo_24.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/drawable/ic_pesquisa_24.xml" value="0.28854166666666664" />
+        <entry key="app/src/main/res/layout/activity_cadastrar_quest.xml" value="0.5098493626882966" />
         <entry key="app/src/main/res/layout/activity_cadastro.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_configuracoes.xml" value="0.2977198697068404" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3177083333333333" />
+        <entry key="app/src/main/res/layout/activity_minhas_quests.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/activity_quest.xml" value="0.3177083333333333" />
+        <entry key="app/src/main/res/layout/activity_quests.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/activity_teste.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/adapter_contatos.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/adapter_quest.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/adapter_quests.xml" value="0.4" />
+        <entry key="app/src/main/res/layout/content_minhas_quests.xml" value="0.4" />
+        <entry key="app/src/main/res/layout/fragment_contato.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/fragment_quests.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu_principal.xml" value="0.259375" />
       </map>

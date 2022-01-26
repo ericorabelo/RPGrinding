@@ -16,6 +16,7 @@ import erico.rabelo.rpgrinding.model.Usuario;
 
 public class UsuarioFirebase {
 
+
     public static String getIndentificadorUsuario() {
         //retornar o identificador do usuario dono da imagem
         FirebaseAuth usuario = ConfiguracaoFirebase.getFirebaseAutenticacao();

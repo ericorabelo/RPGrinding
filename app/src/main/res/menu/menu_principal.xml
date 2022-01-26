@@ -20,4 +20,12 @@
         android:title="Perfil"
         app:showAsAction="never">
     </item>
+
+    <item
+        android:id="@+id/menuMinhasQuests"
+        android:title="Quests"
+        app:showAsAction="never">
+    </item>
+
+
 </menu>

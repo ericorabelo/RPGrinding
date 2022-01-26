@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
-        Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("RPGrinding");
         setSupportActionBar(toolbar);//faz com q a toolbar tenhar suporte a versões antigas do android
 
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menuPerfil:
                 abrirPerfil();
                 break;
+
         }
         return super.onOptionsItemSelected(item);
 
@@ -70,5 +71,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
 
 }

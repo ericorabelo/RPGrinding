@@ -4,15 +4,11 @@
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="true">
-    </uses-feature>
-
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE">
-    </uses-permission >
-    <uses-permission
-        android:name="android.permission.CAMERA">
-    </uses-permission >
+        android:required="true" /> <!-- Permissões internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permissões camera e galeria -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -23,11 +19,8 @@
         android:theme="@style/Theme.RPGrinding">
         <activity
             android:name=".atividades.ConfiguracoesActivity"
-            android:parentActivityName=".atividades.MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".atividades.QuestActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".atividades.MainActivity" />
         <activity
             android:name=".atividades.CadastroActivity"
             android:exported="true" />

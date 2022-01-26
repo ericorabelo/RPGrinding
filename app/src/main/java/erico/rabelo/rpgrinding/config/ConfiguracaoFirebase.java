@@ -38,8 +38,4 @@ public class ConfiguracaoFirebase {
         return storage;
     }
 
-
-
-
-
 }

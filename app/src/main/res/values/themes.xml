@@ -2,7 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.RPGrinding" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item> <!-- texto, cor da  seta do teclado q fica piscando, sombra dos componentes -->
+        <item name="colorPrimary">@color/purple_500
+        </item> <!-- texto, cor da  seta do teclado q fica piscando, sombra dos componentes -->
         <item name="colorPrimaryVariant">@color/purple_700</item> <!-- barra do wifi e relogio -->
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -13,4 +14,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.RPGrinding.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.RPGrinding.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.RPGrinding.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
