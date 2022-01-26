@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menuPerfil:
                 abrirPerfil();
                 break;
+            case R.id.menuMinhasQuests:
+                abrirMinhasQuests();
+                break;
 
         }
         return super.onOptionsItemSelected(item);
@@ -72,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    public void abrirMinhasQuests(){
+        Intent intent = new Intent(MainActivity.this, MinhasQuestsActivity.class);
+        startActivity( intent );
+    }
 
 }
