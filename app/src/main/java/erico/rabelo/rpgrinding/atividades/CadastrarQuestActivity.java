@@ -107,7 +107,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
                             quest.setFoto(listaImagemUrlSalva);
                             quest.salvar();
 
-                            //finish();
+                            finish();
                         }
                     }
                 });

@@ -5,7 +5,6 @@ import com.google.firebase.database.DatabaseReference;
 import java.util.List;
 
 import erico.rabelo.rpgrinding.config.ConfiguracaoFirebase;
-import erico.rabelo.rpgrinding.sup.UsuarioFirebase;
 
 public class Quest {
     private String idQuest;
@@ -25,14 +24,25 @@ public class Quest {
     public void salvar(){
 
         String idUsuario = ConfiguracaoFirebase.getIdUsuario();
-        DatabaseReference anuncioRef = ConfiguracaoFirebase.getFirebaseDatabase()
+        DatabaseReference questRef = ConfiguracaoFirebase.getFirebaseDatabase()
                 .child("minhas_quests");
 
-        anuncioRef.child(idUsuario)
+        questRef.child(idUsuario)
                 .child(getIdQuest())
                 .setValue(this);
 
 
+    }
+
+    public void deletar(){
+
+        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
+        DatabaseReference questRef = ConfiguracaoFirebase.getFirebaseDatabase()
+                .child("minhas_quests")
+                .child(idUsuario)
+                .child(getIdQuest());
+
+        questRef.removeValue();
     }
 
     public String getIdQuest() {

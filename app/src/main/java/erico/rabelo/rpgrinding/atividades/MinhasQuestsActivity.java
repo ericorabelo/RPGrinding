@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.AdapterView;
 
 
 import androidx.appcompat.widget.Toolbar;
@@ -31,6 +32,7 @@ import erico.rabelo.rpgrinding.R;
 import erico.rabelo.rpgrinding.adapter.AdapterQuests;
 import erico.rabelo.rpgrinding.config.ConfiguracaoFirebase;
 import erico.rabelo.rpgrinding.model.Quest;
+import erico.rabelo.rpgrinding.sup.RecyclerItemClickListener;
 
 public class MinhasQuestsActivity extends AppCompatActivity {
 
@@ -73,6 +75,33 @@ public class MinhasQuestsActivity extends AppCompatActivity {
 
         //carregar a lista de quests
         carregarQuests();
+
+        //add evento de click no reclycler view
+        recyclerQuests.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        this, recyclerQuests,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+                                Quest questSelecionada = quests.get(position);
+                                questSelecionada.deletar();
+
+                                adapterQuests.notifyDataSetChanged();
+
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                            }
+                        }
+                )
+        );
     }
 
     public void carregarQuests(){
@@ -93,6 +122,8 @@ public class MinhasQuestsActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     public void inicializarComponentes(){
         recyclerQuests = findViewById(R.id.recyclerQuests);
