@@ -29,9 +29,6 @@
             android:label="@string/title_activity_minhas_quests"
             android:theme="@style/Theme.RPGrinding.NoActionBar" />
         <activity
-            android:name=".atividades.QuestsActivity"
-            android:exported="true" />
-        <activity
             android:name=".atividades.ConfiguracoesActivity"
             android:exported="true"
             android:parentActivityName=".atividades.MainActivity" />
