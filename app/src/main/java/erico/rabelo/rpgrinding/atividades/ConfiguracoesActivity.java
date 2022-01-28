@@ -134,6 +134,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
                  }
             }
         });
+
     }
 
 

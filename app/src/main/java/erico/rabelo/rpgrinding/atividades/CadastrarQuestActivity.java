@@ -13,7 +13,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -25,9 +24,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import erico.rabelo.rpgrinding.R;
 import erico.rabelo.rpgrinding.config.ConfiguracaoFirebase;
@@ -38,12 +39,13 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
 
     private EditText campoTituloQuest, campoDescricao, campoXP;
 
-    private String [] permissoes = new String[]{
+    final String [] permissoes = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
 
     private ImageView imagem;
-    String imagemEscolhida;
+    List<String> listaImagemEscolhida = new ArrayList<>();
+    List<String> listaImagemUrlSalva = new ArrayList<>();
 
     Spinner campoDificuldade, campoHabilidade;
 
@@ -69,19 +71,25 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
     }
 
     public void salvarQuest(){
-        salvarFotoStorage(imagemEscolhida);
+
+        for (int i=0; i<listaImagemEscolhida.size(); i++){
+            String urlImagem = listaImagemEscolhida.get(i);
+            int t = listaImagemEscolhida.size();
+            salvarFotoStorage(urlImagem, t, i);
+        }
+        //salvarFotoStorage(imagemEscolhida);
     }
 
-    private void salvarFotoStorage(String url){
+    private void salvarFotoStorage(String url, final int t, int i){
         //cria no storage
-        final StorageReference imagemQuest = storage
-                .child("imagens")
+        StorageReference imagemQuest = storage.child("imagens")
                 .child("quests")
                 .child(quest.getIdQuest())
-                .child("imagem");
+                .child("imagem"+i);
 
         //upload do arquivo
-        UploadTask uploadTask = imagemQuest.putFile(Uri.parse(url));
+        UploadTask uploadTask = imagemQuest.putFile(Uri.parse(url));//converte a imagem no tipo de arquivo uri
+
         uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -89,9 +97,18 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
                 imagemQuest.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                     @Override
                     public void onComplete(@NonNull Task<Uri> task) {
+
                         Uri urlFirebase = task.getResult();
                         String urlConvertida = urlFirebase.toString();
 
+                        listaImagemUrlSalva.add(urlConvertida);
+
+                       if(t == listaImagemUrlSalva.size()){
+                            quest.setFoto(listaImagemUrlSalva);
+                            quest.salvar();
+
+                            //finish();
+                        }
                     }
                 });
             }
@@ -99,7 +116,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
             @Override
             public void onFailure(@NonNull Exception e) {
                 exibirMensagemErro("Falha no upload");
-                Log.i("INFO","Falha ao fazer uploud, " + e.getMessage());
+               // Log.i("INFO","Falha ao fazer uploud, " + e.getMessage());
             }
         });
 
@@ -126,7 +143,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
 
         quest = configurarQuest();
 
-        if(!quest.getFoto().isEmpty()){
+        if(listaImagemEscolhida.size()!=0){
             if(!quest.getDificuldade().isEmpty() ){
                 if(!quest.getHabilidade().isEmpty()){
                     if(!quest.getNome().isEmpty()){
@@ -185,7 +202,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
             if(requestCode==1){
                 imagem.setImageURI(selecionarImagem);
             }
-            imagemEscolhida = caminhoImagem;
+            listaImagemEscolhida.add(caminhoImagem);
         }
 
     }
@@ -194,7 +211,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
         String [] dificuldades = new String[]{
                 "Fácil", "Média", "Dificil", "Extrema"
         };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item,
                 dificuldades
         );
@@ -204,7 +221,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
         String [] habilidades = new String[]{
                 "Força", "Ágilidade", "Inteligencia", "Constituição"
         };
-        ArrayAdapter<String> adapterHabilidade = new ArrayAdapter<String>(
+        ArrayAdapter<String> adapterHabilidade = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item,
                 habilidades
         );
@@ -218,11 +235,11 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
         campoDescricao = findViewById(R.id.editTextDescricaoQuest);
         campoXP = findViewById(R.id.editTextXPQuest);
 
-        imagem = findViewById(R.id.imageView1);
-        imagem.setOnClickListener(this);
-
         campoDificuldade = findViewById(R.id.spinnerDificuldade);
         campoHabilidade = findViewById(R.id.spinnerHabilidade);
+
+        imagem = findViewById(R.id.imageView1);
+        imagem.setOnClickListener(this);
 
     }
 
@@ -232,7 +249,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         for(int permissaoResultado : grantResults){
-            if (permissaoResultado== PackageManager.PERMISSION_DENIED){
+            if (permissaoResultado == PackageManager.PERMISSION_DENIED){
                 alertaValidacaoPermissao();
             }
         }
@@ -242,7 +259,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
     private void alertaValidacaoPermissao(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Permissão Negada");
-        builder.setMessage("Para utulizar o app é necessario aceitar as permissões");
+        builder.setMessage("Para utilizar o app é necessario aceitar as permissões");
         builder.setCancelable(false);
         builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override

@@ -2,7 +2,10 @@ package erico.rabelo.rpgrinding.model;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.List;
+
 import erico.rabelo.rpgrinding.config.ConfiguracaoFirebase;
+import erico.rabelo.rpgrinding.sup.UsuarioFirebase;
 
 public class Quest {
     private String idQuest;
@@ -11,12 +14,25 @@ public class Quest {
     private String nome;
     private String descricao;
     private String xp;
-    private String foto;
+    private List<String> foto;
 
     public Quest() {
         DatabaseReference questRef = ConfiguracaoFirebase.getFirebaseDatabase()
                 .child("minhas_quests");
         setIdQuest(questRef.push().getKey());
+    }
+
+    public void salvar(){
+
+        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
+        DatabaseReference anuncioRef = ConfiguracaoFirebase.getFirebaseDatabase()
+                .child("minhas_quests");
+
+        anuncioRef.child(idUsuario)
+                .child(getIdQuest())
+                .setValue(this);
+
+
     }
 
     public String getIdQuest() {
@@ -67,11 +83,11 @@ public class Quest {
         this.xp = xp;
     }
 
-    public String getFoto() {
+    public List<String> getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(List<String> foto) {
         this.foto = foto;
     }
 }
