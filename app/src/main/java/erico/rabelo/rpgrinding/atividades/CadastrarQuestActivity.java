@@ -77,7 +77,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
             int t = listaImagemEscolhida.size();
             salvarFotoStorage(urlImagem, t, i);
         }
-        //salvarFotoStorage(imagemEscolhida);
+
     }
 
     private void salvarFotoStorage(String url, final int t, int i){

@@ -2,11 +2,13 @@ package erico.rabelo.rpgrinding.model;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
 import java.util.List;
 
 import erico.rabelo.rpgrinding.config.ConfiguracaoFirebase;
 
-public class Quest {
+//quest precisa implementar p/ poder enviar uma quest de uma activiti para outra
+public class Quest implements Serializable {
     private String idQuest;
     private String dificuldade;
     private String habilidade;
@@ -31,6 +33,18 @@ public class Quest {
                 .child(getIdQuest())
                 .setValue(this);
 
+        salvarComFiltros();
+
+    }
+
+    public void salvarComFiltros(){
+        DatabaseReference questsRef = ConfiguracaoFirebase.getFirebaseDatabase()
+                .child("quests");
+
+        questsRef.child( getDificuldade() )
+                .child( getHabilidade() )
+                .child( getIdQuest() )
+                .setValue(this);
 
     }
 
