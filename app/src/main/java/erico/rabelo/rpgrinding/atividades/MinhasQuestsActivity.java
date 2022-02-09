@@ -65,7 +65,7 @@ public class MinhasQuestsActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), CadastrarQuestActivity.class));
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //configurar recyclerView
         recyclerQuests.setLayoutManager(new LinearLayoutManager(this));
@@ -83,7 +83,8 @@ public class MinhasQuestsActivity extends AppCompatActivity {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-
+                                Intent intent = new Intent(MinhasQuestsActivity.this, DetalhesQuestActivity.class);
+                                startActivity( intent );
                             }
 
                             @Override

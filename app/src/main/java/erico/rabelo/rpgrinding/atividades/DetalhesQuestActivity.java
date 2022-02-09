@@ -3,9 +3,11 @@ package erico.rabelo.rpgrinding.atividades;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -29,9 +31,6 @@ public class DetalhesQuestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_quest);
 
-
-
-        //configurações do toolbar
 
         //inciando componentes da interface
         inicializarComponentes();
@@ -62,4 +61,11 @@ public class DetalhesQuestActivity extends AppCompatActivity {
         textViewHabilidadeDetalhe = findViewById(R.id.textViewHabilidadeDetalhe);
 
     }
+
+   /* public void completarQuest(){
+        questSelecionada.deletar();
+        Toast.makeText(DetalhesQuestActivity.this,
+                "Quest Completada com Sucesso",
+                Toast.LENGTH_SHORT).show();
+    }*/
 }

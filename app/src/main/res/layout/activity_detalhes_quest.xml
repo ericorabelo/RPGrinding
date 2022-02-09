@@ -19,12 +19,16 @@
         android:id="@+id/textViewTituloDetalhe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:text="Titulo" />
 
     <TextView
         android:id="@+id/textViewDescricaoDetalhe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:paddingBottom="8dp"
         android:text="Descrição" />
 
@@ -32,6 +36,8 @@
         android:id="@+id/textViewXpDetalhe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:text="XP" />
 
     <View
@@ -43,6 +49,8 @@
         android:id="@+id/textViewDificuldadeDetalhe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:padding="8dp"
         android:text="Dificuldade" />
 
@@ -55,6 +63,8 @@
         android:id="@+id/textViewHabilidadeDetalhe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:padding="8dp"
         android:paddingTop="8dp"
         android:paddingBottom="10dp"
@@ -64,5 +74,8 @@
         android:id="@+id/buttonCompletarDetalhe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="completarQuest"
         android:text="Completar" />
 </LinearLayout>
