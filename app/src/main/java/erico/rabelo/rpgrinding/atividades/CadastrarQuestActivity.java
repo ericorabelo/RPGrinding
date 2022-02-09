@@ -116,7 +116,7 @@ public class CadastrarQuestActivity extends AppCompatActivity implements View.On
             @Override
             public void onFailure(@NonNull Exception e) {
                 exibirMensagemErro("Falha no upload");
-               // Log.i("INFO","Falha ao fazer uploud, " + e.getMessage());
+
             }
         });
 
