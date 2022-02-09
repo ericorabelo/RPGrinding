@@ -83,8 +83,12 @@ public class MinhasQuestsActivity extends AppCompatActivity {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Intent intent = new Intent(MinhasQuestsActivity.this, DetalhesQuestActivity.class);
-                                startActivity( intent );
+                                //Intent intent = new Intent(MinhasQuestsActivity.this, DetalhesQuestActivity.class);
+                                //startActivity( intent );
+                                Quest questSelecionada = quests.get(position);
+                                Intent i = new Intent(MinhasQuestsActivity.this, DetalhesQuestActivity.class);
+                                i.putExtra("questSelecionada", questSelecionada);
+                                startActivity(i);
                             }
 
                             @Override
